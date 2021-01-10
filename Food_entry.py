@@ -43,8 +43,9 @@ def enter_food() -> None:
             amount = input("Enter the amount per item in product unit: ")
             total = float(quantity) * float(amount)
             food [name] = [expiry, pro_type, total]
-            decision = input("Press X: if you are done entering\nPress Any other key: to continue")
+            decision = input("Press X: if you are done entering\nPress Any other key: to continue\n")
             if decision == "X":
                 condition = False
+                break
             name = ''
     main(food)
