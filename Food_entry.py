@@ -17,7 +17,7 @@ def enter_food() -> None:
     Enter the amount per item in product unit: 500
     Enter your product: 
     >>> food 
-    {'milk': [[4, 12, 2020], 'dairy', 1000.0]}
+    {'milk': [04122020, 'dairy', 1000.0]}
     """
     condition = True
     decision = None
@@ -36,10 +36,8 @@ def enter_food() -> None:
         
             expiry_date = input("Enter the expiry date (mm/dd/yyyy)\nPlease enter in this format with the correct date: ")
             # the expiry date will be presented as a list containing the month, day, and year type int
-            expiry = []
-            expiry.append(int(expiry_date[0: 2]))
-            expiry.append(int(expiry_date[3: 5]))
-            expiry.append(int(expiry_date[6:]))
+            expiry = ''
+            expiry = expiry + expiry_date[0:2] + expiry_date[3:5] + expiry_date[6:]
         
             quantity = input("Enter the number of items: ")
             amount = input("Enter the amount per item in product unit: ")
