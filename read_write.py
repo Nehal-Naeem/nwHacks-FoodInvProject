@@ -18,7 +18,7 @@ def write_file(file_name, data):
     """
     f = open(file_name, "a+")
     for key in data:
-        f.write("#"+key+"\t#"+str(data[key][0])+"\t#"+data[key][1])
+        f.write("#"+key+"#"+str(data[key][0])+"#"+data[key][1])
         f.write("\n")
     f.close()
 
