@@ -1,7 +1,7 @@
 # Dictionaries
 itemName = {}
 itemExpiry = {}
-itemStock = {}
+itemType = {}
 
 
 # read method
@@ -18,36 +18,28 @@ def getData():
 # didnt include product type because thought it was irrelevant
 
 # expiry date is written as mm/dd/yyyy format in text file, and as [mm, dd, yyyy] in dictionary itemExpiry
-# 
+# TODO: implement LOOP for each line 
+# TODO: replace the "1" in the update methods lines(35:37) with incremental value for the loop
 def toDictionaries(fileObject) :
-    itemCount = int((fileObject.readline()).rstrip('\n'))
-    for i in range(0, itemCount):
+    #itemCount = int((fileObject.readline()).rstrip('\n'))
+    #for i in range(0, itemCount):
         line = (fileObject.readline()).rstrip("\n")
         
         x0, x1, x2, x3 = line.split("#")
-        month, day, year = x2.split("/")
-    
-        x0 = int(x0)
-        x3 = int(x3)
+        month, day, year = x2.replace("[","").replace("]","").split(",")
+
         month = int(month)
         day = int(day)
         year = int(year)
 
-        itemName.update({x0: x1})
-        itemExpiry.update({x0: [month, day, year]})
-        itemStock.update({x0: x3})
-
-    # print(x1)
-
-    # print("Expiry Month is:" ,month)
-    # print(day)
-    # print(year)
-    
-    # print(x3)
+        itemName.update({1: x1})
+        itemExpiry.update({1: [month, day, year]})
+        itemType.update({1: x3})
 
 
 # mess around with inventory.txt to see different results
 
 test= getData()
 toDictionaries(test)
-print(itemName, itemExpiry, itemStock)
+print(itemName, itemExpiry, itemType)
+
