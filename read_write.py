@@ -25,7 +25,12 @@ def append_file(file_name):
     """
     if path.exists(file_name):
         f = open(file_name, "a+")
-        #Now write into this. from the data. TODO.
+        for key in data:
+            f.write(key)
+            f.write("\n")
+            for values in data[key]:
+                f.write(str(values)+'\n')
+            f.write("\n")
         f.close()
         global condition
         condition = False #Made to false after entire data has been written into file
@@ -43,7 +48,12 @@ def write_file(file_name):
     """
     if not path.exists(file_name):
         f = open(file_name, "w+")
-        #Now write into this. from the data. TODO.
+        for key in data:
+            f.write(key)
+            f.write("\n")
+            for values in data[key]:
+                f.write(str(values)+'\n')
+            f.write("\n")
         f.close()
         global condition
         condition = False #Made to false after entire data has been written into file
@@ -68,6 +78,3 @@ def main():
             append_file(file_name)
         else:
             print("Incorrect option\n")
-
-if __name__ == "__main__":
-    main()
